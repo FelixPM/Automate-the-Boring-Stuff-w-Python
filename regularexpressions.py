@@ -259,4 +259,4 @@ mo = phoneRegex.findall('Call me at 415-555-1011 or (415) 555-9999')
 print(mo)
 
 # Combining arguments
-someRegexValue = re.compile("foo", re.I | re.DOTALL)
+someRegexValue = re.compile('foo', re.I | re.DOTALL)
