@@ -2,6 +2,7 @@
 """
 
 import os
+import this
 
 
 # current working directory
