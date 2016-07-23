@@ -2,10 +2,10 @@
 """
 
 import os
-import this
-
 
 # current working directory
+import shelve
+
 print('Current working directory: ')
 print(os.getcwd())
 
@@ -96,3 +96,17 @@ ender_file = open('ender.txt')
 content = ender_file.read()
 ender_file.close()
 print(content)
+
+# Storing variables with shelve
+shelf_file = shelve.open('my_data')
+heroes = ['Jim', 'Finn', 'Thrall']
+shelf_file['heroes'] = heroes
+shelf_file.close()
+
+# retrieving
+shelf_file = shelve.open('my_data')
+print('\nStoring and retrieving data with shelve: ', shelf_file['heroes'])
+
+# Data is stored like a dictionary
+print(list(shelf_file.keys()))
+print(list(shelf_file.values()))
