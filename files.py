@@ -2,9 +2,11 @@
 """
 
 import os
-
-# current working directory
 import shelve
+import pprint
+import my_cats
+# current working directory
+
 
 print('Current working directory: ')
 print(os.getcwd())
@@ -110,3 +112,12 @@ print('\nStoring and retrieving data with shelve: ', shelf_file['heroes'])
 # Data is stored like a dictionary
 print(list(shelf_file.keys()))
 print(list(shelf_file.values()))
+
+# pretty print into .py file as a python variable and import
+cats = [{'name': 'Zophie', 'desc': 'chubby'}, {'name': 'Pooka', 'desc': 'fluffy'}]
+print(pprint.pformat(cats))
+cats_file = open('my_cats.py', 'w')
+cats_file.write('cats = ' + pprint.pformat(cats) + '\n')
+cats_file.close()
+
+print(my_cats.cats)
