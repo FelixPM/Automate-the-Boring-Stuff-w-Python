@@ -1,4 +1,4 @@
-"""Using python to move, copy and rename files
+"""Using python to move, copy, rename and delte files
 """
 
 import shutil
@@ -28,3 +28,16 @@ if os.path.exists('test\\test_file.txt'):
     shutil.move('test\\test_file.txt', 'test\\test_file1.txt')
 else:
     shutil.move('test\\test_file1.txt', 'test\\test_file.txt')
+
+# delete single file
+# os.unlink('testcopy\\test_file_copy.txt')
+
+# delete empty folder
+if not os.path.exists('test\\makefolder'):
+    os.makedirs('test\\makefolder')
+else:
+    os.rmdir('test\\makefolder')
+
+# delete folder and contents
+# if os.path.exists('.\\testbackup'):
+#     shutil.rmtree('.\\testbackup')
