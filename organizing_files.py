@@ -3,6 +3,7 @@
 
 import shutil
 import os
+import send2trash
 
 print('Current working directory: ')
 print(os.getcwd())
@@ -41,3 +42,12 @@ else:
 # delete folder and contents
 # if os.path.exists('.\\testbackup'):
 #     shutil.rmtree('.\\testbackup')
+
+# send to trash instead of permanent delete
+# send2trash.send2trash('testcopy\\test_file_copy.txt')
+
+# Iterate over all folders and subfolders
+for foldername, subfolders, filenames in os.walk('.\\'):
+    print('Current folder: '+foldername)
+    print('Current subfolders: '+str(subfolders))
+    print('Current filenames: '+str(filenames))
