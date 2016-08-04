@@ -4,6 +4,7 @@
 import shutil
 import os
 import send2trash
+import zipfile
 
 print('Current working directory: ')
 print(os.getcwd())
@@ -39,7 +40,7 @@ if not os.path.exists('test\\makefolder'):
 else:
     os.rmdir('test\\makefolder')
 
-# delete folder and contents
+# Delete folder and contents
 # if os.path.exists('.\\testbackup'):
 #     shutil.rmtree('.\\testbackup')
 
@@ -51,3 +52,24 @@ for foldername, subfolders, filenames in os.walk('.\\'):
     print('Current folder: '+foldername)
     print('Current subfolders: '+str(subfolders))
     print('Current filenames: '+str(filenames))
+
+# Read zipped file
+examplezip = zipfile.ZipFile('testcopy\\ender.zip')
+print(examplezip.namelist())
+
+# zipped file info
+zenInfo = examplezip.getinfo('zen.txt')
+print(zenInfo.file_size)
+print(zenInfo.compress_size)
+print('Compressed file is %sx smaller!' % (round(zenInfo.file_size / zenInfo.compress_size, 2)))
+
+# Extract zip file to cwd or especified path
+# exampleZip.extractall()
+# exampleZip.extract('name', 'path')
+examplezip.close()
+
+# Create zip files
+newZip = zipfile.ZipFile('new.zip', 'w')
+newZip.write('ender.txt', compress_type=zipfile.ZIP_DEFLATED)
+newZip.close()
+
