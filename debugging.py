@@ -1,4 +1,4 @@
-"""Tools and techniques for debugging
+"""Tools and techniques for debugging: Exception and Assertions
 """
 
 import traceback
